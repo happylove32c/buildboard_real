@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#E3DAC9]">
-
+    <div className="flex items-center justify-center h-screen">
+      <h1 className="text-4xl font-bold">Welcome to Buildboard</h1>
     </div>
-  )
+  );
 }

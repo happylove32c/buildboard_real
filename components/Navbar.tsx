@@ -1,40 +1,19 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-// import AuthButton from "./AuthButton"
-
-const navItems = [
-  { label: "Dashboard", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "New", href: "/new" },
-]
+import Link from "next/link";
 
 export default function Navbar() {
-  const pathname = usePathname()
-
   return (
-    <nav className="border-b border-gray-200 dark:border-neutral-800 bg-white dark:bg-black px-6 py-3 flex items-center justify-between">
-      <div className="flex items-center gap-6">
-        <span className="font-bold text-lg">Buildboard</span>
-        <ul className="flex items-center gap-4">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`px-2 py-1 rounded-md transition-colors ${
-                  pathname === item.href
-                    ? "bg-black text-white dark:bg-white dark:text-black"
-                    : "hover:bg-gray-100 dark:hover:bg-neutral-900"
-                }`}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+    <nav className="bg-white sticky top-0 z-50 p-4 flex justify-between items-center shadow-md">
+      <div className=""><h1 className="text-xl font-bold">Buildboard</h1></div>
+      <div className="nav-items flex items-center gap-6">
+        <Link href="/" className="text-sm font-medium flex items-center gap-1 hover:text-black transition-colors">
+          Dashboard
+        </Link>
+        <Link href="/about" className="text-sm font-medium flex items-center gap-1 hover:text-black transition-colors">
+          Projects
+        </Link>
       </div>
-      {/* <AuthButton /> */}
     </nav>
-  )
+  );
 }
